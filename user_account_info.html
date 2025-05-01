@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Account Info</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+</head>
+<body>
+
+  <div class="main-wrapper">
+
+    <!-- Top section with logo and nav -->
+    <div class="header-box">
+      <div class="logo">Logo</div>
+      <div class="nav-actions">
+        <a href="#" class="nav-home">Home</a>
+        <a href="#" class="logout-btn">Logout</a>
+      </div>
+    </div>
+
+    <!-- Title -->
+    <div class="form-title">User Account Info</div>
+
+    <!-- Back Button -->
+    <div class="register-container">
+      <a href="#" class="back-btn">← Back</a>
+
+      <!-- Account Info Box -->
+      <div class="account-box">
+        <div>
+          <p><strong>Name:</strong> John Doe</p>
+          <p><strong>Gender:</strong> Male</p>
+          <p><strong>Email:</strong> Johndoe@gmail.com</p>
+          <p><strong>DOB:</strong> 27/05/1975</p>
+          <p><strong>Age:</strong> 50</p>
+          <p><strong>Address:</strong> Clementi West St 1</p>
+        </div>
+        <div>
+          <p><strong>Role:</strong> Home Owner</p>
+          <p><strong>ID:</strong> 123–456–789</p>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="form-actions">
+        <button type="button" class="submit-btn">Update Info</button>
+        <button type="button" class="submit-btn">Suspend</button>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="modal-overlay" style="display:none">
+    <div class="modal-box">
+      <h2>Are you sure?</h2>
+      <p>You are suspending</p>
+      <p>User: JohnDoe, Email: Johndoe@gmail.com, User-ID: 123-456-789</p>
+      <p>This action is irreversible</p>
+  
+      <div class="form-actions" style="justify-content: space-between; max-width: 400px; margin: 20px auto 0 auto;">
+        <button class="submit-btn">Cancel</button>
+        <button class="submit-btn">Suspend user</button>
+      </div>
+
+    </div>
+  </div>  
+</body>
+</html>

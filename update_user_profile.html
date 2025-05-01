@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile Creation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="shared.css" />
+</head>
+<body>
+    <div class="main-wrapper">
+
+        <!-- Header -->
+        <div class="header-box">
+          <div class="logo">Logo</div>
+          <div class="nav-actions">
+            <a href="#" class="nav-home">Home</a>
+            <a href="#" class="logout-btn">Logout</a>
+          </div>
+        </div>
+
+    <!-- Title -->
+    <div class="form-title">Update User Profile</div>
+
+    <!-- Back -->
+    <div class="register-container">
+      <a href="#" class="back-btn">← Back</a>
+    </div>
+
+    <div class="form-container1">
+        <form action="#" method="post">
+            <div class="form-group1">
+                <label for="profileName" class="form-label1">Profile Name</label>
+                <input type="text" id="profileName" class="form-control1">
+            </div>
+
+            <div class="form-group1">
+                <label for="profileType" class="form-label1">Profile Type</label>
+                <input type="text" id="profileType" class="form-control1">
+            </div>
+
+            <div class="form-group1">
+                <label for="profileDescription" class="form-label1">Profile Description</label>
+                <textarea id="profileDescription" class="form-control1"></textarea>
+            </div>
+        </form>
+    </div>
+    
+    <div class="form-actions">
+        <a href="#" class="reset-btn" onclick="document.querySelector('form').reset()">Reset</a>
+        <button type="submit" class="submit-btn">Submit</button>
+      </div>
+</div>
+</body>
+</html>
