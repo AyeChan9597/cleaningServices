@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Profile Info</title>
+  <link rel="stylesheet" href="suspend.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">Logo</div>
+    <nav>
+      <a href="#" class="nav-link">Home</a>
+      <button class="logout-btn">Logout</button>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="title">User Profile Info</h1>
+    <button class="back-btn">← Back</button>
+
+    <div class="profile-box">
+      <p><strong>Profile Name:</strong> Cleaner</p>
+      <p><strong>Profile Description:</strong></p>
+      <p class="description">
+        Responsible for providing high-quality cleaning services to residential and commercial clients.
+        Tasks include dusting, vacuuming, mopping, sanitizing surfaces, and ensuring all assigned areas
+        are neat, clean, and hygienic. Reliable, detail-oriented, and committed to maintaining client
+        satisfaction and safety.
+      </p>
+    </div>
+
+    <div class="users-section">
+      <p><strong>Total Users: (100)</strong></p>
+      <select>
+        <option>Show all users</option>
+      </select>
+    </div>
+
+    <div class="action-buttons">
+      <button class="update-btn">Update Profile</button>
+      <button class="suspend-btn" onclick="showPopup()">Suspend</button>
+    </div>
+  </main>
+
+  <!-- Modal -->
+  <div id="popup" class="modal">
+    <div class="modal-content">
+      <h2>Are you sure?</h2>
+      <p>
+        You are suspending <strong>Profile-ID: 1001</strong>. All users in the profile will be unable to login.<br>
+        This action is irreversible.
+      </p>
+      <div class="modal-actions">
+        <button onclick="hidePopup()">Cancel</button>
+        <button onclick="confirmSuspension()">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showPopup() {
+      document.getElementById('popup').style.display = 'flex';
+    }
+
+    function hidePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+
+    function confirmSuspension() {
+      alert("Profile suspended successfully.");
+      hidePopup();
+    }
+  </script>
+</body>
+</html>
