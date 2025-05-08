@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Category Search</title>
+    <link rel="stylesheet" href="search_service_category.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Logo</div>
+        <div class="nav">
+            <a href="#" class="home-link">Home</a>
+            <button class="logout-btn">Logout</button>
+        </div>
+    </header>
+
+    <div class="banner">
+        <h1>Search Service Category</h1>
+    </div>
+
+    <div class="container">
+        <div class="back-button">
+            <span class="back-icon">&#8249;</span> Back
+        </div>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="">
+            <button class="search-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+        </div>
+
+        <div class="category-list" id="categoryList">
+            <!-- Categories will be populated here -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const categories = [
+                { 
+                    name: 'House Cleaning', 
+                    id: 'CATE-001', 
+                    totalListings: 10,
+                    details: [
+                        { title: 'Regular House Cleaning', price: '$50/hr' },
+                        { title: 'Deep Cleaning', price: '$75/hr' },
+                        { title: 'Post-Construction Cleaning', price: '$100/hr' }
+                    ]
+                },
+                { 
+                    name: 'Window Cleaning', 
+                    id: 'CATE-002', 
+                    totalListings: 5,
+                    details: [
+                        { title: 'Interior Windows', price: '$40/hr' },
+                        { title: 'Exterior Windows', price: '$60/hr' }
+                    ]
+                },
+                { 
+                    name: 'Office Cleaning', 
+                    id: 'CATE-003', 
+                    totalListings: 7,
+                    details: [
+                        { title: 'Small Office', price: '$100/visit' },
+                        { title: 'Medium Office', price: '$200/visit' },
+                        { title: 'Large Office', price: '$350/visit' }
+                    ]
+                }
+            ];
+
+            const searchInput = document.getElementById('searchInput');
+            const categoryList = document.getElementById('categoryList');
+
+            // Initial render
+            renderCategories(categories);
+
+            // Search functionality
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const filteredCategories = categories.filter(category => 
+                    category.name.toLowerCase().includes(searchTerm)
+                );
+                renderCategories(filteredCategories);
+            });
+
+            function renderCategories(categoriesToRender) {
+                categoryList.innerHTML = '';
+                
+                categoriesToRender.forEach(category => {
+                    const categoryItem = document.createElement('div');
+                    categoryItem.className = 'category-item';
+                    
+                    categoryItem.innerHTML = `
+                        <div class="category-info">
+                            <div class="category-name">Category name: ${category.name}</div>
+                            <div class="category-id">Category-ID: ${category.id}</div>
+                            <div class="total-listing">Total listing (${category.totalListings})</div>
+                        </div>
+                        <div class="arrow-icon">&#8250;</div>
+                    `;
+                    
+                    const detailsContainer = document.createElement('div');
+                    detailsContainer.className = 'details-container';
+                    detailsContainer.style.display = 'none';
+                    
+                    category.details.forEach(detail => {
+                        const detailItem = document.createElement('div');
+                        detailItem.className = 'detail-item';
+                        detailItem.innerHTML = `
+                            <div class="detail-title">${detail.title}</div>
+                            <div class="detail-price">${detail.price}</div>
+                        `;
+                        detailsContainer.appendChild(detailItem);
+                    });
+                    
+                    categoryItem.addEventListener('click', function() {
+                        const arrow = this.querySelector('.arrow-icon');
+                        if (detailsContainer.style.display === 'none') {
+                            detailsContainer.style.display = 'block';
+                            arrow.innerHTML = '&#8250;';
+                            arrow.classList.add('arrow-down');
+                        } else {
+                            detailsContainer.style.display = 'none';
+                            arrow.innerHTML = '&#8250;';
+                            arrow.classList.remove('arrow-down');
+                        }
+                    });
+                    
+                    categoryList.appendChild(categoryItem);
+                    categoryList.appendChild(detailsContainer);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
